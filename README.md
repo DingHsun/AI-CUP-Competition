@@ -14,6 +14,6 @@ https://tbrain.trendmicro.com.tw/Competitions/Details/25
 Public Leaderboard : 17/134名
 
 模型建置與訓練測試流程：
-首先根據每張圖片的長(height)寬(width)對其做標準化動作，因為 YOLOv5 輸入格式為標準化過後之數值。
-接著建置 YOLOv5x 模型設定參數：batch size, epoch, img size 等。
+首先根據每張圖片的長(height)寬(width)對其做標準化動作，因為 YOLOv5 輸入格式為標準化過後之數值。  
+接著建置 YOLOv5x 模型設定參數：batch size, epoch, img size 等。  
 並開始訓練120epoch觀測其結果。
