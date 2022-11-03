@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, render_template, request
+from flask import Flask, redirect, url_for, render_template, request, jsonify
 import torch
 import numpy as np
 import base64
@@ -19,6 +19,9 @@ def index():
 def result():
   if request.method == 'POST':
       image = request.files["img"]
+      data = image.filename
+      if(data==''):
+        return render_template('home.html')
       image = Image.open(image.stream)
       result = np.array(image)
       result = predict(result)
