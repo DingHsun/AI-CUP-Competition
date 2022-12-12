@@ -7,11 +7,11 @@ https://tbrain.trendmicro.com.tw/Competitions/Details/25
 
 競賽時間：2022/9/22 – 2022/12/5
 
-目前參賽隊伍：236隊
+參賽隊伍數：236隊
 
 參賽隊伍名稱：TEAM_2110
 
-Public Leaderboard : 48/236名
+Private Leaderboard : 48/236名
 
 模型建置與訓練測試流程：
 首先根據每張圖片的長(height)寬(width)對其做標準化動作，因為 YOLOv5 輸入格式為標準化過後之數值。  
