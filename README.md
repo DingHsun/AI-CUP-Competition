@@ -13,7 +13,34 @@ https://tbrain.trendmicro.com.tw/Competitions/Details/25
 
 Private Leaderboard : 48/236名
 
-模型建置與訓練測試流程：
+## 模型建置與訓練測試流程：  
+### 第一版：  
 首先根據每張圖片的長(height)寬(width)對其做標準化動作，因為 YOLOv5 輸入格式為標準化過後之數值。  
 接著建置 YOLOv5x 模型設定參數：batch size, epoch, img size 等。  
-並開始訓練120epoch觀測其結果。
+![image](https://user-images.githubusercontent.com/110473288/209075418-8b3134ea-e3a5-4dc9-bdae-bacbf7515bb2.png)  
+將資料集經過前處理後直接丟入YOLOv5x模型做Fine tune，並未作任何處理。  
+Training score：
+- Precision：0.782  
+- Recall： 0.692  
+- mAP50：0.739  
+- mAP50-90：0.295  
+
+Testing Hmean𝑇𝐼𝑜𝑈：0.597545  
+
+### 第二版：  
+重新分析資料集和bounding box，發現大部分的偵測目標都非常的小，儘管使用比Yolov5還要深度的Yolov5x（Testing Hmean𝑇𝐼𝑜𝑈 由0.585上升至0.597）但始終無法再有顯著的提升。  
+因此對於Yolov5的Anchor先驗框，調整其原本預設的大小，將原本的Anchor值縮小，使得檢測目標的外框可以更加準確，依照Anchor先驗框再做調整優化，提升小目標偵測的精準度。  
+![image](https://user-images.githubusercontent.com/110473288/209075559-b4d67542-7297-45a9-be3e-10d77c8a563d.png)  
+Training score：
+- Precision：0.85  
+- Recall： 0.751  
+- mAP50：0.817  
+- mAP50-90：0.422  
+
+Testing Hmean𝑇𝐼𝑜𝑈：0.649769 （0.597 -> 0.649）  
+## 最終結果：  
+Score：0.642332  
+最終名次：Top20%（48/236名）  
+
+## 賽後結論：  
+本次首次運用Yolo實作物件偵測，了解到物件偵測的原理與應用。往後能夠朝向改進神經網路架構使得偵測更為準確、更符合data特性。
