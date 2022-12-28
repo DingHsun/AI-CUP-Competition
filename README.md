@@ -38,9 +38,24 @@ Training score：
 - mAP50-90：0.422  
 
 Testing Hmean𝑇𝐼𝑜𝑈：0.649769 （0.597 -> 0.649）  
+
+### 第三版（賽後持續改進）：
+對於大部分的偵測小目標的任務，對Yolov5的架構做修改，降低初步CNN之layer的stride，使得模型Output的size變大，意味著每個feature的感受視野較小，特徵集中在小區域內，另外Anchor先驗框維持第二版的大小，以此來提升小目標偵測的精準度。  
+
+修改：將backbone第一層CNN之stride設為1，使得Output採樣倍率降低。  
+
+![image](https://user-images.githubusercontent.com/110473288/209767759-2b8c7c90-a466-43f8-816b-5e88909b53ce.png)  
+
+Training score：（best）  
+- Precision：0.881  
+- Recall： 0.773  
+- mAP50：0.842  
+- mAP50-90：0.45  
+
 ## 最終結果：  
 Score：0.642332  
 最終名次：Top20%（48/236名）  
 
 ## 賽後結論：  
-本次首次運用Yolo實作物件偵測，了解到物件偵測的原理與應用。往後能夠朝向改進神經網路架構使得偵測更為準確、更符合data特性。
+本次首次運用Yolo實作物件偵測，了解到物件偵測的原理與應用。往後能夠更加改進神經網路架構使得偵測更為準確、更符合data特性。  
+在物件偵測上，主要的應用還是以Real Time較為重要，雖說本次使用較深的模型競賽，但往後會需要更加考慮快又準的輕巧模型。
