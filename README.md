@@ -44,7 +44,7 @@ Testing Hmean𝑇𝐼𝑜𝑈：0.649769 （0.597 -> 0.649）
 
 修改：將backbone第一層CNN之stride設為1，使得Output採樣倍率降低。  
 
-![image](https://user-images.githubusercontent.com/110473288/209767759-2b8c7c90-a466-43f8-816b-5e88909b53ce.png)  
+![image](https://user-images.githubusercontent.com/110473288/210296774-201ad7d9-f225-490e-84dd-5a37cafe5c04.png)  
 
 Training score：（best）  
 - Precision：0.881  
